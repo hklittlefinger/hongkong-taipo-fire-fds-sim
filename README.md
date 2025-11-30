@@ -101,13 +101,6 @@ Sim 4 (Steel+FR+Styro) vs Sim 8 (Steel+FR+No Styro)
 Expected: Styrofoam adds 40-50% to peak HRR
 ```
 
-## Compute Requirements
-
-- **Per simulation**: 45 hours @ 45 cores (c7i.12xlarge)
-- **Total sequential**: 8 × 45 = 360 hours = 15 days
-- **Parallel (8 instances)**: ~48 hours elapsed time
-- **Cost estimate**: $2,300-3,500 USD (spot instances)
-
 ## Running on AWS
 
 ### Launch Script
