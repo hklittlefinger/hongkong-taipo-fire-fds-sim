@@ -78,11 +78,12 @@ This simplified approach allows us to:
 ```
 
 The script will:
-1. Create VPC and security groups
-2. Launch EC2 spot instances (c7i.12xlarge)
-3. Install FDS via cloud-init
-4. Upload FDS files
-5. Start simulations with 45 MPI processes
+1. Auto-detect latest Ubuntu 24.04 AMI for the region
+2. Create VPC and security groups
+3. Launch EC2 spot instances (c7i.12xlarge)
+4. Install FDS via cloud-init
+5. Upload FDS files
+6. Start simulations with 45 MPI processes
 
 ### Manual Execution
 
