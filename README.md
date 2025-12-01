@@ -80,14 +80,31 @@ The script will:
 
 ### Manual Execution
 
-Instance 1: `mpiexec -n 45 fds tier1_1_bamboo_PP_styro.fds`
-Instance 2: `mpiexec -n 45 fds tier1_2_steel_PP_styro.fds`
-Instance 3: `mpiexec -n 45 fds tier1_3_bamboo_FR_styro.fds`
-Instance 4: `mpiexec -n 45 fds tier1_4_steel_FR_styro.fds`
-Instance 5: `mpiexec -n 45 fds tier1_5_bamboo_FR_no_styro.fds`
-Instance 6: `mpiexec -n 45 fds tier2_5_bamboo_none_styro.fds`
-Instance 7: `mpiexec -n 45 fds tier2_6_bamboo_HDPE_styro.fds`
-Instance 8: `mpiexec -n 45 fds tier2_7_steel_FR_nostyro.fds`
+```bash
+# Instance 1
+mpiexec -n 45 fds tier1_1_bamboo_PP_styro.fds
+
+# Instance 2
+mpiexec -n 45 fds tier1_2_steel_PP_styro.fds
+
+# Instance 3
+mpiexec -n 45 fds tier1_3_bamboo_FR_styro.fds
+
+# Instance 4
+mpiexec -n 45 fds tier1_4_steel_FR_styro.fds
+
+# Instance 5
+mpiexec -n 45 fds tier1_5_bamboo_FR_no_styro.fds
+
+# Instance 6
+mpiexec -n 45 fds tier2_5_bamboo_none_styro.fds
+
+# Instance 7
+mpiexec -n 45 fds tier2_6_bamboo_HDPE_styro.fds
+
+# Instance 8
+mpiexec -n 45 fds tier2_7_steel_FR_nostyro.fds
+```
 
 ## Output Files
 
