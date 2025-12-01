@@ -63,44 +63,6 @@ This simplified approach allows us to:
 - **Styrofoam**: Polystyrene foam, ignition 350°C, HoC 40 MJ/kg, massive soot
 - **No Styrofoam**: Windows closed but not sealed with insulation
 
-## Expected Results
-
-### Material Contributions (Predicted)
-Based on forensic analysis and material properties:
-
-| Material | Contribution to Peak HRR | Fire Acceleration |
-|----------|-------------------------|-------------------|
-| Styrofoam | 45-50% | ~17 min faster |
-| PP Tarpaulin | 30-35% | ~13 min faster |
-| Bamboo | 20-25% | ~2.5 min faster |
-
-### Key Comparisons
-
-**Bamboo Contribution:**
-```
-Sim 1 (Bamboo+PP) vs Sim 2 (Steel+PP)
-Expected: 15 MW difference, 150s time difference
-```
-
-**Netting Compliance:**
-```
-Sim 1 (PP) vs Sim 3 (FR-HDPE)
-Expected: 20 MW difference, 800s time difference (13 minutes!)
-```
-
-**Full Compliance:**
-```
-Sim 1 (Actual) vs Sim 4 (Best case with styrofoam)
-Expected: 30 MW difference, 1300s time difference (22 minutes!)
-```
-
-**Styrofoam Effect:**
-```
-Sim 3 (Bamboo+FR+Styro) vs Sim 5 (Bamboo+FR+No Styro)
-Sim 4 (Steel+FR+Styro) vs Sim 8 (Steel+FR+No Styro)
-Expected: Styrofoam adds 40-50% to peak HRR
-```
-
 ## Running on AWS
 
 ### Launch Script
