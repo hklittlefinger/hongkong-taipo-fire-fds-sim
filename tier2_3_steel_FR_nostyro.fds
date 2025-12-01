@@ -1,6 +1,6 @@
-&HEAD CHID='tier2_7_steel_FR_nostyro', TITLE='T2-7: NO_STYRO - Steel + FR-HDPE + No Styrofoam' /
+&HEAD CHID='tier2_3_steel_FR_nostyro', TITLE='T2-3: NO_STYRO - Steel + FR-HDPE + No Styrofoam' /
 
-! --- PARAMETRIC STUDY: TIER 2 - SIMULATION 7 ---
+! --- PARAMETRIC STUDY: TIER 2 - SIMULATION 3 ---
 ! Scaffolding: STEEL (inert)
 ! Safety Net: FR-HDPE (compliant)
 ! Windows: NONE (no sealing - open windows)
