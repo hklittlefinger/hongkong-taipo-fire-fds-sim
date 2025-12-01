@@ -142,6 +142,51 @@ check_instance_status() {
     if [ -n "$TIME_STEP" ]; then
         echo "Status: 🔄 RUNNING"
         echo "$TIME_STEP"
+
+        # Extract simulation time and calculate progress
+        local CURRENT_SIM_TIME
+        CURRENT_SIM_TIME=$(echo "$TIME_STEP" | sed -n 's/.*Simulation Time:[[:space:]]*\([0-9.]*\).*/\1/p')
+        CURRENT_SIM_TIME=${CURRENT_SIM_TIME:-0}
+        local TARGET_TIME=3600.0  # From T_END in FDS files
+
+        # Get process start time from FDS output file birth time (Linux)
+        local START_TIME
+        local SIM_BASE="${SIM_FILE%.fds}"
+        START_TIME=$(ssh_exec "$IP" "stat -c %W ${SIM_BASE}.out 2>/dev/null || echo 0")
+        local CURRENT_TIME=$(date +%s)
+        local ELAPSED_WALL_TIME=$((CURRENT_TIME - START_TIME))
+
+        if [ "$ELAPSED_WALL_TIME" -gt 0 ] && [ "$(echo "$CURRENT_SIM_TIME > 0" | bc -l 2>/dev/null || echo 0)" = "1" ]; then
+            # Calculate progress percentage
+            local PROGRESS=$(printf "%.2f" $(echo "scale=4; ($CURRENT_SIM_TIME * 100) / $TARGET_TIME" | bc -l))
+
+            # Calculate elapsed wall minutes
+            local ELAPSED_WALL_MINS=$(echo "scale=2; $ELAPSED_WALL_TIME / 60" | bc -l)
+
+            # Calculate rate (sim seconds per wall minute)
+            local RATE=$(printf "%.2f" $(echo "scale=4; $CURRENT_SIM_TIME / $ELAPSED_WALL_MINS" | bc -l))
+
+            # Estimate remaining time
+            local REMAINING_SIM_TIME=$(echo "$TARGET_TIME - $CURRENT_SIM_TIME" | bc -l)
+            local ESTIMATED_WALL_MINS=$(echo "scale=0; $REMAINING_SIM_TIME / $RATE" | bc -l)
+
+            # Format elapsed time
+            local ELAPSED_HOURS=$((ELAPSED_WALL_TIME / 3600))
+            local ELAPSED_MINS=$(((ELAPSED_WALL_TIME % 3600) / 60))
+
+            # Format estimated finish time
+            local ESTIMATED_WALL_SECONDS=$(echo "$ESTIMATED_WALL_MINS * 60" | bc)
+            local FINISH_TIMESTAMP=$((CURRENT_TIME + ESTIMATED_WALL_SECONDS))
+            local FINISH_TIME=$(date -d "@$FINISH_TIMESTAMP" "+%Y-%m-%d %H:%M:%S" 2>/dev/null || date -r "$FINISH_TIMESTAMP" "+%Y-%m-%d %H:%M:%S" 2>/dev/null || echo "unknown")
+            local ETA_HOURS=$(echo "scale=0; $ESTIMATED_WALL_MINS / 60" | bc)
+            local ETA_MINS=$(echo "scale=0; $ESTIMATED_WALL_MINS % 60" | bc)
+
+            echo "Progress: ${PROGRESS}% (${CURRENT_SIM_TIME}s / ${TARGET_TIME}s)"
+            echo "Elapsed: ${ELAPSED_HOURS}h ${ELAPSED_MINS}m"
+            echo "Rate: ${RATE} sim-sec/wall-min"
+            echo "ETA: ${ETA_HOURS}h ${ETA_MINS}m (finish: $FINISH_TIME)"
+        fi
+
         echo ""
         echo "Last few time steps:"
         echo "$TMUX_OUTPUT" | grep "Time Step:" | tail -5
