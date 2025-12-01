@@ -1,5 +1,11 @@
 # Wang Fuk Fire - Parametric Study
 
+<p align="center">
+  <em>"He would see this country burn if he could be king of the ashes"</em>
+  <br>
+  — Lord Varys
+</p>
+
 ## Overview
 8 FDS simulations to determine material contributions to fire spread.
 
