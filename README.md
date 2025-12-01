@@ -38,9 +38,9 @@ This simplified approach allows us to:
 
 | # | File | Scaffolding | Safety Net | Styrofoam | Purpose |
 |---|------|-------------|------------|-----------|---------|
-| 6 | tier2_5_bamboo_none_styro.fds | Bamboo | **None** | Yes | Total net effect |
-| 7 | tier2_6_bamboo_HDPE_styro.fds | Bamboo | **HDPE (cheap)** | Yes | PP vs HDPE |
-| 8 | tier2_7_steel_FR_nostyro.fds | Steel | FR-HDPE | **No** | Styrofoam effect with full compliance |
+| 6 | tier2_1_bamboo_none_styro.fds | Bamboo | **None** | Yes | Total net effect |
+| 7 | tier2_2_bamboo_HDPE_styro.fds | Bamboo | **HDPE (cheap)** | Yes | PP vs HDPE |
+| 8 | tier2_3_steel_FR_nostyro.fds | Steel | FR-HDPE | **No** | Styrofoam effect with full compliance |
 
 ## Fire Source
 
@@ -103,13 +103,13 @@ mpiexec -n 45 fds tier1_4_steel_FR_styro.fds
 mpiexec -n 45 fds tier1_5_bamboo_FR_no_styro.fds
 
 # Instance 6
-mpiexec -n 45 fds tier2_5_bamboo_none_styro.fds
+mpiexec -n 45 fds tier2_1_bamboo_none_styro.fds
 
 # Instance 7
-mpiexec -n 45 fds tier2_6_bamboo_HDPE_styro.fds
+mpiexec -n 45 fds tier2_2_bamboo_HDPE_styro.fds
 
 # Instance 8
-mpiexec -n 45 fds tier2_7_steel_FR_nostyro.fds
+mpiexec -n 45 fds tier2_3_steel_FR_nostyro.fds
 ```
 
 ## Output Files
