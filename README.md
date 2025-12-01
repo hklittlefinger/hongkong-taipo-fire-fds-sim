@@ -25,7 +25,7 @@ This simplified approach allows us to:
 | 1 | tier1_1_bamboo_PP_styro.fds | Bamboo | PP (non-compliant) | Yes | **ACTUAL incident** |
 | 2 | tier1_2_steel_PP_styro.fds | **Steel** | PP (non-compliant) | Yes | Isolate bamboo |
 | 3 | tier1_3_bamboo_FR_styro.fds | Bamboo | **FR-HDPE (compliant)** | Yes | Isolate netting |
-| 4 | tier1_4_steel_FR_styro.fds | **Steel** | **FR-HDPE (compliant)** | Yes | Full compliance |
+| 4 | tier1_4_steel_FR_styro.fds | **Steel** | **FR-HDPE (compliant)** | Yes | Full compliance with styrofoam |
 | 5 | tier1_5_bamboo_FR_no_styro.fds | Bamboo | **FR-HDPE (compliant)** | **No** | Styrofoam effect with FR net |
 
 ### TIER 2: Extended Analysis (3 simulations)
