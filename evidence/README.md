@@ -132,23 +132,37 @@ See [ANONYMOUS-CONTRIBUTIONS.md](../ANONYMOUS-CONTRIBUTIONS.md) for secure submi
 
 Priority items we're seeking:
 
-### High Priority
+### Critical (Simulation Validation)
+
+Evidence needed to validate FDS fire simulations against observed fire behavior:
+
+- [ ] **Timestamped videos** showing fire progression from multiple angles
+- [ ] **Photos with EXIF timestamps** intact (do NOT strip metadata for these)
+- [ ] **Weather data** at time of fire (wind speed/direction, temperature, humidity)
+- [ ] **Pre-fire photos** of scaffolding/safety net configuration
+- [ ] **Building dimensions** and scaffolding measurements
+- [ ] **Vantage point documentation** - where videos/photos were taken from
+
+### High Priority (Technical Analysis)
+
 - [ ] Building floor plans
-- [ ] Scaffolding installation permits
-- [ ] Safety net material specifications
+- [ ] Scaffolding configuration drawings and dimensions
+- [ ] Safety net material specifications (fire rating, composition, manufacturer)
 - [ ] Fire alarm system inspection records
-- [ ] Renovation contractor details
+- [ ] Renovation contractor details and permits
 - [ ] Timeline of events with source citations
 
 ### Medium Priority
-- [ ] Historical photos of building/scaffolding
+
 - [ ] Previous fire safety inspection reports
 - [ ] Resident communications about renovation
 - [ ] Insurance documents
+- [ ] Building management correspondence
 
-### Ongoing
+### Ongoing Collection
+
 - [ ] News coverage (especially local Chinese-language media)
-- [ ] First-hand accounts
+- [ ] First-hand accounts with time observations
 - [ ] Social media posts (with archive links)
 
 ## Legal Notice
