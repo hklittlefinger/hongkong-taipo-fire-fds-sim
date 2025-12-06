@@ -1,29 +1,29 @@
-## Summary
+## 摘要 / Summary
 
-<!-- Brief description of what this PR does -->
+<!-- 簡短描述呢個 PR 做緊乜嘢 / Brief description of what this PR does -->
 
-## Change Type
+## 變更類型 / Change Type
 
-<!-- Check all that apply -->
+<!-- 剔選所有適用嘅項目 / Check all that apply -->
 
-- [ ] Code (scripts, infrastructure)
-- [ ] Model (FDS simulation files)
-- [ ] Documentation
-- [ ] Evidence
+- [ ] 代碼（腳本、基礎設施）/ Code (scripts, infrastructure)
+- [ ] 模型（FDS 模擬檔案）/ Model (FDS simulation files)
+- [ ] 文檔 / Documentation
+- [ ] 證據 / Evidence
 
-## Changes
+## 變更內容 / Changes
 
-<!-- List the specific changes made -->
+<!-- 列出具體變更 / List the specific changes made -->
 
 -
 
-## Personal Security Checklist
+## 個人安全核對清單 / Personal Security Checklist
 
-<!-- Review ANONYMOUS-CONTRIBUTIONS.md if you have concerns about your safety -->
+<!-- 如果你對安全有顧慮，請閱讀 ANONYMOUS-CONTRIBUTIONS.md / Review ANONYMOUS-CONTRIBUTIONS.md if you have concerns about your safety -->
 
-- [ ] Using pseudonymous git identity (no real name/email in commits)
-- [ ] No identifying details in commit messages or content
-- [ ] File metadata stripped from images/documents (if applicable)
-- [ ] Faces of private individuals redacted (if applicable)
-- [ ] Sources provided where possible
-- [ ] Information accuracy verified
+- [ ] 使用匿名 git 身份（commit 中冇真名/電郵）/ Using pseudonymous git identity (no real name/email in commits)
+- [ ] commit 訊息或內容中冇可識別嘅細節 / No identifying details in commit messages or content
+- [ ] 已移除圖片/文件嘅檔案元數據（如適用）/ File metadata stripped from images/documents (if applicable)
+- [ ] 已遮蔽私人人士嘅面部（如適用）/ Faces of private individuals redacted (if applicable)
+- [ ] 已盡可能提供來源 / Sources provided where possible
+- [ ] 已核實資訊準確性 / Information accuracy verified
