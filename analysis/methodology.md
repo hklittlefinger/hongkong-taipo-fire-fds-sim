@@ -16,12 +16,12 @@
 
 報告：[NIST NCSTAR 1 系列](https://www.nist.gov/publications/federal-building-and-fire-safety-investigation-world-trade-center-disaster-final-report)
 
-### 格蘭菲塔調查（2017年至今）
+### 格蘭菲塔調查（2017-2025，已完成）
 
 英國對格蘭菲塔火災嘅公開調查為火災調查建立咗嚴格標準：
 
-- **第一階段**：事發當晚嘅事實紀錄
-- **第二階段**：火災點燃同蔓延方式；建築法規；應對措施
+- **第一階段**：事發當晚嘅事實紀錄（報告：2019年10月）
+- **第二階段**：火災點燃同蔓延方式；建築法規；應對措施（報告：2024年9月）
 - **證據收集**：文件、證人證詞、專家報告
 - **獨立性**：調查獨立於政府
 - **透明度**：公開聽證會、公開證據
@@ -226,12 +226,12 @@ The National Institute of Standards and Technology (NIST) conducted a comprehens
 
 Reports: [NIST NCSTAR 1 Series](https://www.nist.gov/publications/federal-building-and-fire-safety-investigation-world-trade-center-disaster-final-report)
 
-### Grenfell Tower Inquiry (2017-present)
+### Grenfell Tower Inquiry (2017-2025, completed)
 
 The UK public inquiry into the Grenfell Tower fire established rigorous standards for fire investigation:
 
-- **Phase 1**: Factual account of events on the night
-- **Phase 2**: How the fire started and spread; building regulations; response
+- **Phase 1**: Factual account of events on the night (report: October 2019)
+- **Phase 2**: How the fire started and spread; building regulations; response (report: September 2024)
 - **Evidence gathering**: Documents, witness testimony, expert reports
 - **Independence**: Inquiry independent of government
 - **Transparency**: Public hearings, published evidence
