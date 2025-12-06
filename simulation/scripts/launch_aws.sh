@@ -4,8 +4,9 @@ set -o pipefail
 
 # Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-LOG_FILE="${SCRIPT_DIR}/launch_aws.log"
-ERROR_LOG_FILE="${SCRIPT_DIR}/launch_aws_errors.log"
+DATA_DIR="${SCRIPT_DIR}/../data"
+LOG_FILE="${DATA_DIR}/launch_aws.log"
+ERROR_LOG_FILE="${DATA_DIR}/launch_aws_errors.log"
 source "${SCRIPT_DIR}/common.sh"
 
 # --- COMMAND-LINE ARGUMENTS ---
