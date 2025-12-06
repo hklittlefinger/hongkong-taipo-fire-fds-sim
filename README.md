@@ -1,4 +1,4 @@
-# Wang Fuk Fire - Parametric Study
+# Wang Fuk Court Fire Documentation
 
 <p align="center">
   <em>"He would see this country burn if he could be king of the ashes"</em>
@@ -7,6 +7,35 @@
 </p>
 
 ## Overview
+
+This project documents and analyzes the Wang Fuk Court fire tragedy (November 26, 2025, Tai Po, Hong Kong) that claimed 159+ lives. Our goals:
+
+1. **Preserve evidence** before it disappears
+2. **Enable independent analysis** through fire dynamics simulation
+3. **Support fire safety improvements** through rigorous technical investigation
+
+We welcome contributions from anyone with relevant information. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to help, or [ANONYMOUS-CONTRIBUTIONS.md](ANONYMOUS-CONTRIBUTIONS.md) if you have safety concerns.
+
+## Project Structure
+
+```
+├── evidence/              # Evidence collection
+│   ├── news/              # News reports and media coverage
+│   ├── firsthand/         # Witness statements and survivor accounts
+│   ├── media/             # Photos and videos
+│   └── official/          # Government documents
+├── analysis/              # Technical analysis
+│   ├── methodology.md     # Investigation framework (NIST/Grenfell-inspired)
+│   ├── building/          # Building analysis
+│   └── regulatory/        # Regulatory compliance review
+├── simulation/            # FDS fire dynamics simulation
+│   ├── *.fds              # FDS input files
+│   └── scripts/           # AWS launch and monitoring scripts
+└── resources/             # Tools and references
+```
+
+## Fire Dynamics Simulation
+
 8 FDS simulations to determine material contributions to fire spread.
 
 ### Simulation Scope
@@ -84,14 +113,16 @@ The AMI is available in multiple regions (eu-north-1, eu-south-1, eu-south-2, ap
 ### Launch Script
 
 ```bash
+cd simulation
+
 # Basic launch
-./launch_aws.sh --key-path ~/.ssh/fds-key-pair tier1_*.fds tier2_*.fds
+./scripts/launch_aws.sh --key-path ~/.ssh/fds-key-pair tier1_*.fds tier2_*.fds
 
 # Fresh start (delete existing S3 output)
-./launch_aws.sh --key-path ~/.ssh/fds-key-pair --clean tier1_1.fds
+./scripts/launch_aws.sh --key-path ~/.ssh/fds-key-pair --clean tier1_1.fds
 
 # Larger disk for big simulations
-./launch_aws.sh --key-path ~/.ssh/fds-key-pair --volume-size 200 tier1_1.fds
+./scripts/launch_aws.sh --key-path ~/.ssh/fds-key-pair --volume-size 200 tier1_1.fds
 ```
 
 The script will:
@@ -107,7 +138,7 @@ The script will:
 ### Monitor Status
 
 ```bash
-./check_status.sh --key-path ~/.ssh/fds-key-pair --watch --interval 60
+./scripts/check_status.sh --key-path ~/.ssh/fds-key-pair --watch --interval 60
 ```
 
 ### Manual Execution (on EC2 instance)
