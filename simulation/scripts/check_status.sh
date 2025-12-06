@@ -189,6 +189,12 @@ function check_aws_instance() {
         return 11  # Special code for spot interruption
     fi
 
+    # Check if instance is still booting (AWS pending state)
+    if [ "$INSTANCE_STATE" = "pending" ]; then
+        echo "Status: ⏳ INSTANCE PENDING (AWS booting)"
+        return 12  # Special code for AWS pending
+    fi
+
     # Check if instance is running
     if [ "$INSTANCE_STATE" != "running" ]; then
         echo "Status: ⏹️  INSTANCE NOT RUNNING (state: ${INSTANCE_STATE:-unknown})"
@@ -291,16 +297,16 @@ function check_instance_status() {
 
     # Check if SSH is accessible
     if ! ssh_exec "$IP" "exit" 2> /dev/null; then
-        echo "Status: ⚠️  INSTANCE RUNNING BUT SSH NOT ACCESSIBLE"
+        echo "Status: ⏳ INITIALIZING (SSH not ready yet - cloud-init may be running)"
         echo ""
-        return 10
+        return 13  # AWS running but still initializing
     fi
 
     # Check if tmux session exists
     if ! ssh_exec "$IP" "tmux has-session -t fds_run 2>/dev/null"; then
-        echo "Status: ❌ TMUX SESSION NOT FOUND"
+        echo "Status: ⏳ INITIALIZING (tmux session not started yet)"
         echo ""
-        return 10
+        return 13  # AWS running but simulation not started
     fi
 
     # Get last 20 lines of tmux output
@@ -395,6 +401,7 @@ function is_simulation_restartable() {
 function check_all_instances() {
     local TOTAL=0
     local RUNNING=0
+    local PENDING=0
     local COMPLETED=0
     local ERRORS=0
     local NOT_RUNNING=0
@@ -430,7 +437,7 @@ function check_all_instances() {
                 aws ec2 terminate-instances --instance-ids "$INSTANCE_ID" --region "$REGION" > /dev/null 2>&1 || echo "   ⚠️  Warning: Failed to terminate instance"
                 ;;
             10)
-                # Instance not running - check S3 for actual sim status
+                # AWS says instance not running (terminated/stopped/shutting-down)
                 : $((NOT_RUNNING++))
                 local S3_STATUS
                 S3_STATUS=$(check_sim_status_from_s3 "$SIM_FILE")
@@ -451,14 +458,21 @@ function check_all_instances() {
                     fi
                 fi
                 ;;
+            12|13)
+                # 12: AWS pending (instance booting)
+                # 13: AWS running but initializing (SSH/tmux not ready yet)
+                : $((PENDING++))
+                # Don't update DB - instance is still starting up
+                ;;
         esac
-    done < <(get_instances active)
+    done < <(get_instances active pending)
 
     echo "========================================"
     echo "SUMMARY - $(date '+%Y-%m-%d %H:%M:%S')"
     echo "========================================"
-    echo "Total active instances: $TOTAL"
+    echo "Total instances: $TOTAL"
     echo "Running simulations: $RUNNING"
+    echo "Pending (setting up): $PENDING"
     echo "Completed: $COMPLETED"
     echo "Failed (FDS errors): $ERRORS"
     echo "Interrupted (spot): $INTERRUPTED"
