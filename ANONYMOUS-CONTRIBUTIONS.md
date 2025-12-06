@@ -1,233 +1,194 @@
 # Contributing Anonymously
 
-This guide explains how to contribute to this project while protecting your identity. Your safety is paramount.
+This guide addresses anonymous contribution in the context of Hong Kong's current regulatory environment. Read the threat model carefully before deciding how to contribute.
 
-## Why Anonymity Matters
+## Threat Model: Hong Kong 2024
 
-Documenting incidents that may involve regulatory failures or institutional negligence can carry risks. This guide helps you contribute safely if you have concerns about:
-- Retaliation from employers or authorities
-- Legal exposure
-- Personal safety
-- Privacy
+### Legal Environment
 
-## Quick Reference
+Since March 2024, Hong Kong operates under both the **National Security Law (2020)** and the **Safeguarding National Security Ordinance (Article 23)**. Key provisions relevant to contributors:
 
-| Method | Anonymity Level | Technical Skill | Best For |
-|--------|-----------------|-----------------|----------|
-| Tor + ProtonMail | High | Low | Text, small files |
-| OnionShare | Very High | Medium | Large files, media |
-| Anonymous GitHub | High | Medium | Code, documentation |
-| Physical mail | Very High | Low | Documents, USB drives |
+- **State secrets** now includes information about "economic and social development" and "major policy decisions" - potentially covering building safety failures
+- **"Unauthorized acts related to computer systems"** can carry life imprisonment
+- **Sedition** is broadly defined and actively prosecuted
+- **External interference** offenses target coordination with overseas entities
 
-## Before You Start
+The National Security Department (NSD) has powers to:
+- Conduct covert surveillance
+- Search properties and freeze assets
+- Deny arrested persons access to their lawyer of choice
+- Request data from service providers with limited judicial oversight
 
-### Basic Precautions
+Sources: [TIME](https://time.com/6958258/hong-kong-national-security-law-2024-explainer/), [Hong Kong Free Press](https://hongkongfp.com/article23-security-law/), [NPR](https://www.npr.org/2024/03/19/1239403058/hong-kong-new-article-23-national-security-legislation)
 
-1. **Don't use work/school networks** - Use public WiFi (cafe, library) or mobile data
-2. **Use a separate device if possible** - Or at minimum, a separate browser profile
-3. **Don't discuss your contributions** - With anyone who doesn't need to know
-4. **Consider timing** - Don't submit immediately after obtaining information
+### Surveillance Infrastructure
 
-### Threat Model
+- **2,000+ CCTV cameras** installed throughout HK in 2024
+- **Facial recognition** not ruled out by Police Commissioner
+- **Public WiFi** often requires phone number or ID registration
+- **ISPs** log connection metadata and comply with government requests
+- **Mobile data** tied to registered SIM cards
 
-Consider what you're protecting against:
-- **Casual observation**: Basic precautions sufficient
-- **Determined adversary**: Use Tor, air-gapped devices, physical mail
-- **State-level surveillance**: Consult security professionals, consider risks carefully
+Source: [JSIS](https://jsis.washington.edu/news/internet-censorship-and-digital-surveillance-under-hong-kongs-national-security-law/)
 
-## Method 1: Tor Browser + Encrypted Email
+### VPN Status
 
-**Best for**: Text submissions, links, small documents
+VPNs are not illegal but:
+- Government has warned VPN use to bypass surveillance "may be considered a national security threat"
+- Some providers (IPVanish, Private Internet Access) have shut down HK servers
+- VPN traffic patterns are detectable by ISPs even if content is encrypted
 
-### Setup
+Source: [Business & Human Rights Resource Centre](https://www.business-humanrights.org/en/latest-news/hong-kong-some-vpn-providers-shut-down-servers-in-hong-kong-over-security-law-concerns/)
 
-1. Download Tor Browser from [torproject.org](https://www.torproject.org)
-2. Create a ProtonMail account via Tor at [proton.me](https://proton.me)
-   - Use a pseudonym, not your real name
-   - Don't link to any existing accounts
-   - Access only via Tor
+## Risk Assessment by Contribution Type
 
-### Submitting
+| Contribution Type | Risk Level | Notes |
+|-------------------|------------|-------|
+| Publicly available news links | Low | Already public information |
+| Personal photos/videos of fire | Low-Medium | May identify you as witness |
+| Technical analysis/commentary | Low | Academic discussion |
+| Documents showing regulatory failures | Medium-High | Could implicate government |
+| Documents identifying contractor negligence | Medium-High | Could implicate connected parties |
+| Internal government communications | Very High | Likely classified as state secrets |
+| Organizing/coordinating investigation | Very High | Could be characterized as subversion |
 
-1. Open Tor Browser
-2. Log into your anonymous ProtonMail
-3. Send your contribution to: `[PROJECT_EMAIL_TBD]@protonmail.com`
-4. Include:
-   - What you're submitting
-   - Context (date, source, how obtained)
-   - Any verification details
-   - How you'd like to be credited (or "anonymous")
+**Key question**: Does your contribution potentially embarrass the government or politically connected entities? If yes, treat it as high risk.
 
-## Method 2: OnionShare for Large Files
+## Recommendations by Risk Level
 
-**Best for**: Photos, videos, large document collections
+### Low Risk Contributions (news links, public information)
 
-### Setup
+Standard precautions sufficient:
+- Use a pseudonymous account
+- Don't include identifying details in commit messages
+- Consider using a VPN (understanding the caveats above)
 
-1. Download Tor Browser
-2. Download OnionShare from [onionshare.org](https://onionshare.org)
+### Medium Risk Contributions (personal evidence, analysis)
 
-### Submitting
+**If you are outside Hong Kong:**
+- Contribute normally but use a pseudonymous account
+- Don't plan to return to HK after contributing sensitive material
 
-1. Open OnionShare
-2. Select files to share
-3. Click "Start sharing" - generates a .onion address
-4. Send the .onion address via encrypted email (Method 1)
-5. Keep OnionShare open until files are downloaded
+**If you are in Hong Kong:**
+- Seriously consider whether the contribution is worth the risk
+- If proceeding, see "High Risk" recommendations below
+- Consider passing materials to someone outside HK instead
 
-## Method 3: Anonymous GitHub Account
+### High Risk Contributions (documents implicating authorities)
 
-**Best for**: Code contributions, documentation improvements, ongoing collaboration
+**Strong recommendation: Do not contribute high-risk materials from within Hong Kong.**
 
-### Setup (via Tor)
+If you possess such materials and are in HK:
+1. **Do not discuss with anyone** - informants are rewarded
+2. **Do not store on devices** that cross the border or could be seized
+3. **Consider leaving HK first** before contributing
+4. **Understand exit restrictions** - persons of interest may be prevented from leaving
 
-1. Open Tor Browser
-2. Create a new email at ProtonMail (via Tor)
-3. Go to github.com
-4. Create account using:
-   - Pseudonymous username (not linked to real identity)
-   - Your anonymous ProtonMail address
-   - Don't enable 2FA with phone number
+If you are outside Hong Kong with high-risk materials:
+- Use Tor Browser from a location not associated with you
+- Create accounts via Tor that have no connection to your identity
+- Do not access these accounts from any network tied to you
+- Consider using Tails OS on a dedicated device
+- Use OnionShare for file transfers
 
-### Contributing
+## Technical Measures (for those proceeding)
 
-1. Fork the repository
-2. Make changes
-3. Submit pull request
-4. All Git operations should be done via Tor or VPN
+### Network Anonymity
 
-### Git Configuration
+1. **Tor Browser** is the minimum for any sensitive activity
+   - Download from [torproject.org](https://www.torproject.org)
+   - Understand that Tor use itself may be logged by ISPs
 
+2. **Network location matters**
+   - Avoid networks requiring ID registration
+   - Your regular ISP logs that you used Tor, even if they can't see what you did
+   - Consider the correlation: unusual network activity + contribution timing
+
+3. **VPNs are NOT sufficient alone**
+   - VPN providers can be compelled to provide logs
+   - VPN over Tor or Tor over VPN each have tradeoffs
+   - A VPN mainly hides Tor usage from your ISP, not from a determined adversary
+
+### Device Security
+
+1. **Separate devices** - Don't use your daily phone/computer
+2. **Tails OS** - Amnesic operating system that leaves no traces
+3. **Never cross borders** with devices containing sensitive materials
+4. **Phone location** - Your phone tracks you; leave it elsewhere during sensitive activities
+
+### Account Separation
+
+1. **Email**: Create via Tor using ProtonMail or Tutanota
+   - Never access from non-Tor connections
+   - Never link to real identity
+
+2. **GitHub**: Create via Tor
+   - Configure git to use pseudonymous identity
+   ```bash
+   git config user.name "Anonymous"
+   git config user.email "anonymous@example.com"
+   git config commit.gpgsign false
+   ```
+
+### File Sanitization
+
+**Exception for simulation validation evidence**: Photos/videos with EXIF timestamps are valuable. If submitting these, understand you're trading some anonymity for evidence quality.
+
+For other files:
 ```bash
-# Use pseudonymous identity
-git config user.name "Anonymous Contributor"
-git config user.email "anon@example.com"
-
-# Disable GPG signing (links to identity)
-git config commit.gpgsign false
-```
-
-## Method 4: Physical Mail
-
-**Best for**: Highly sensitive documents, when digital methods feel too risky
-
-Send physical documents or USB drives to a trusted intermediary. Contact via Method 1 first to arrange.
-
-## Stripping Metadata from Files
-
-### Why This Matters
-
-Photos and documents often contain hidden metadata revealing:
-- Device information (phone model, serial numbers)
-- Location (GPS coordinates)
-- Timestamps
-- Software used
-- Author names
-
-### For Images
-
-**Using ExifTool (command line)**:
-```bash
-# View metadata
-exiftool photo.jpg
-
-# Remove all metadata
+# Strip image metadata
 exiftool -all= photo.jpg
 
-# Verify removal
-exiftool photo.jpg
-```
-
-**Using MAT2 (GUI available)**:
-```bash
-mat2 photo.jpg
-```
-
-**Online (less secure)**:
-- Use via Tor only
-- verexif.com or similar
-
-### For Documents
-
-**PDFs**:
-```bash
-# Using ExifTool
+# Strip PDF metadata
 exiftool -all= document.pdf
 
-# Using MAT2
-mat2 document.pdf
-```
-
-**Word/Office documents**:
-- Save as PDF, then strip PDF metadata
-- Or use MAT2 directly on .docx files
-
-### For Videos
-
-```bash
-# Using FFmpeg - re-encode to strip metadata
+# Re-encode video to strip metadata
 ffmpeg -i input.mp4 -map_metadata -1 -c:v copy -c:a copy output.mp4
 ```
 
-## Verifying Your Anonymity
+### Behavioral Security
 
-### Before Submitting
+- **Timing correlation**: Don't contribute immediately after witnessing/obtaining something
+- **Writing style**: Your prose patterns can be analyzed; consider having someone else write
+- **Don't discuss**: Not with friends, family, or online communities
+- **Pattern of life**: Sudden changes in behavior (using Tor, visiting specific locations) can be noticed
 
-1. **Check your IP**: Visit [check.torproject.org](https://check.torproject.org) via Tor
-2. **Check file metadata**: Run ExifTool on files you're submitting
-3. **Review content**: Ensure text doesn't contain identifying details
-4. **Check links**: Don't include URLs with session tokens or personal identifiers
+## What This Project Does NOT Need
 
-### Common Mistakes
+To be clear about scope and reduce unnecessary risk:
 
-- Using personal email, even once
-- Accessing from identifiable IP addresses
-- Leaving metadata in files
-- Including identifiable details in text ("I work at..." "My neighbor...")
-- Using accounts linked to real identity
-- Timing correlation (submitting right after an event you witnessed)
+- We are documenting a **fire safety incident** for public interest
+- We are NOT organizing political opposition
+- We are NOT seeking to embarrass individuals
+- We are seeking **technical truth** about fire behavior and building safety
+- Contributors of public information (news, technical analysis) face minimal risk
 
-## Secure Communication Channels
+Most contributions to this project are **low risk**. Don't let this guide discourage you from sharing publicly available information or technical analysis.
 
-### For Initial Contact
+## For Those Outside Hong Kong
 
-- **ProtonMail** (via Tor): Create anonymous account, message project maintainers
-- **Signal**: If you need real-time communication, discuss via ProtonMail first
+If you are a Hong Kong resident now living abroad:
+- Understand that contributing controversial materials may affect your ability to return
+- Understand that family members in HK could potentially face pressure
+- Make informed decisions based on your specific situation
 
-### For Ongoing Communication
-
-Once initial contact established, maintainers can provide:
-- Dedicated secure channels
-- Public keys for encrypted communication
-- Alternative submission methods
-
-## Legal Considerations
-
-This guide is for legitimate whistleblowing and documentation purposes. Consider:
-
-- **Leaked documents**: Understand the legal implications in your jurisdiction
-- **Copyright**: News articles should be linked/archived, not copied wholesale
-- **Privacy**: Redact personal information of uninvolved private individuals
-- **Defamation**: Stick to documented facts, label speculation clearly
-
-## If You're Unsure
-
-If you have information but aren't sure how to proceed safely:
-
-1. Don't rush - take time to plan
-2. Contact us via Method 1 to discuss options
-3. Consider consulting a lawyer if legal exposure is a concern
-4. It's okay to wait until you feel safe
+If you have no connection to Hong Kong:
+- You face minimal risk contributing to this project
+- Consider offering to be an intermediary for those who cannot contribute directly
 
 ## Resources
 
-- [Tor Project](https://www.torproject.org) - Anonymous browsing
-- [ProtonMail](https://proton.me) - Encrypted email
-- [OnionShare](https://onionshare.org) - Anonymous file sharing
-- [MAT2](https://0xacab.org/jvoisin/mat2) - Metadata removal
 - [EFF Surveillance Self-Defense](https://ssd.eff.org) - Security guides
 - [Security in a Box](https://securityinabox.org) - Digital security tools
+- [Tor Project](https://www.torproject.org) - Anonymous browsing
+- [Tails](https://tails.boum.org) - Amnesic operating system
+
+## Disclaimer
+
+This guide provides information for those who have already decided to contribute. It is not legal advice. The authors cannot guarantee safety. Each person must assess their own risk tolerance and situation.
+
+The most secure option is always: **don't contribute if you're not comfortable with the risk.**
 
 ---
 
-*Your contributions help preserve the truth. Your safety matters. Take precautions appropriate to your situation.*
+*Fire safety research serves the public interest. But your safety comes first. Make informed decisions.*
