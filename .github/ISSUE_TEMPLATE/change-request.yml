@@ -1,54 +1,55 @@
-name: Change Request
-description: Request a change to code, FDS models, or documentation
+name: 變更請求 / Change Request
+description: 請求變更代碼、FDS 模型或文檔 / Request a change to code, FDS models, or documentation
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
+        使用呢個模板請求變更。如有問題或討論，請使用 [GitHub Discussions](https://github.com/hklittlefinger/hongkong-taipo-fire-fds-sim/discussions)。
         Use this template to request changes. For questions or discussion, please use [GitHub Discussions](https://github.com/hklittlefinger/hongkong-taipo-fire-fds-sim/discussions).
 
   - type: dropdown
     id: type
     attributes:
-      label: Change Type
-      description: What type of change are you requesting?
+      label: 變更類型 / Change Type
+      description: 你請求嘅係邊種變更？/ What type of change are you requesting?
       options:
-        - Code (scripts, infrastructure)
-        - Model (FDS simulation files)
-        - Documentation
+        - 代碼（腳本、基礎設施）/ Code (scripts, infrastructure)
+        - 模型（FDS 模擬檔案）/ Model (FDS simulation files)
+        - 文檔 / Documentation
     validations:
       required: true
 
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: Describe the change you're requesting
-      placeholder: What change would you like to see?
+      label: 描述 / Description
+      description: 描述你請求嘅變更 / Describe the change you're requesting
+      placeholder: 你想見到乜嘢變更？/ What change would you like to see?
     validations:
       required: true
 
   - type: textarea
     id: motivation
     attributes:
-      label: Motivation
-      description: Why is this change needed?
-      placeholder: What problem does this solve or what improvement does it bring?
+      label: 動機 / Motivation
+      description: 點解需要呢個變更？/ Why is this change needed?
+      placeholder: 呢個變更解決乜嘢問題或帶嚟乜嘢改進？/ What problem does this solve or what improvement does it bring?
     validations:
       required: true
 
   - type: textarea
     id: alternatives
     attributes:
-      label: Alternatives Considered
-      description: Any alternative approaches you've considered
+      label: 考慮過嘅替代方案 / Alternatives Considered
+      description: 你考慮過嘅任何替代方法 / Any alternative approaches you've considered
     validations:
       required: false
 
   - type: textarea
     id: context
     attributes:
-      label: Additional Context
-      description: Any other context, references, or screenshots
+      label: 額外背景資料 / Additional Context
+      description: 任何其他背景資料、參考資料或截圖 / Any other context, references, or screenshots
     validations:
       required: false
