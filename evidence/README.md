@@ -144,7 +144,15 @@ content_type: video  # video/image/text/thread
 
 生成校驗碼：
 ```bash
+# 單一檔案
 sha256sum filename > filename.sha256
+
+# 網站存檔（多個檔案）
+# 喺存檔上級目錄執行：
+find archive-folder -type f -exec sha256sum {} \; > archive-folder.sha256
+
+# 驗證校驗碼
+sha256sum -c archive-folder.sha256
 ```
 
 ### 私隱
@@ -435,7 +443,15 @@ Each piece of evidence should have:
 
 Generate checksums:
 ```bash
+# Single file
 sha256sum filename > filename.sha256
+
+# Website archive (multiple files)
+# From the archive parent directory:
+find archive-folder -type f -exec sha256sum {} \; > archive-folder.sha256
+
+# Verify checksums
+sha256sum -c archive-folder.sha256
 ```
 
 ### Privacy
