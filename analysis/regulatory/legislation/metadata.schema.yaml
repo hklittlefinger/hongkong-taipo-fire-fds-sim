@@ -1,0 +1,73 @@
+$schema: "https://json-schema.org/draft-07/schema"
+$id: "https://github.com/wyuenho/wang-fuk-fire/analysis/regulatory/legislation/metadata.schema.yaml"
+title: Legislation Metadata Schema
+description: Schema for metadata.yaml files in the Hong Kong legislation reference collection
+
+type: object
+required:
+  - title
+  - title_en
+  - cap_number
+  - source
+  - url
+  - document_type
+
+properties:
+  title:
+    type: string
+    description: Chinese title of the legislation
+
+  title_en:
+    type: string
+    description: English title of the legislation
+
+  cap_number:
+    type: string
+    description: Hong Kong Laws chapter number (e.g., "123", "572", "123F")
+
+  source:
+    type: string
+    description: Source of the legislation text (typically HKLII)
+
+  url:
+    type: string
+    format: uri
+    description: Primary URL (HKLII)
+
+  elegislation_url:
+    type: string
+    format: uri
+    description: Government e-Legislation URL
+
+  version_date:
+    type: string
+    format: date
+    description: Version date of the legislation text (YYYY-MM-DD)
+
+  capture_date:
+    type: string
+    format: date
+    description: When the legislation was archived (YYYY-MM-DD)
+
+  document_type:
+    type: string
+    enum:
+      - primary_legislation
+      - subsidiary_legislation
+    description: Type of legislation (ordinance vs regulation)
+
+  relevance:
+    type: string
+    description: How this legislation relates to the Wang Fuk Court fire
+
+  key_sections:
+    type: array
+    items:
+      type: string
+    description: List of relevant sections or parts
+
+  notes:
+    type: string
+    description: Multi-line analysis notes on the legislation
+
+additionalProperties: false

@@ -1,0 +1,179 @@
+$schema: "https://json-schema.org/draft-07/schema"
+$id: "https://github.com/wyuenho/wang-fuk-fire/evidence/metadata.schema.yaml"
+title: Evidence Metadata Schema
+description: Schema for metadata.yaml files in the Wang Fuk Court Fire evidence collection
+
+type: object
+required:
+  - title
+  - language
+  - type
+  - archive_status
+
+properties:
+  # Core fields (required)
+  title:
+    type: string
+    description: Primary title in source language
+
+  language:
+    type: string
+    enum: [en, zh]
+    description: Primary language of the source
+
+  type:
+    type: string
+    enum:
+      - news-article
+      - news-broadcast
+      - news-feature
+      - video
+      - graphics-feature
+      - infographic
+      - interactive
+      - reference
+      - press-release
+      - press-conference
+      - website-archive
+    description: Content type classification
+
+  archive_status:
+    type: string
+    enum: [pending, complete, archived_to_s3, blocked]
+    description: Current archival status
+
+  # Common fields (recommended)
+  url:
+    type: string
+    format: uri
+    description: Primary source URL
+
+  source:
+    type: string
+    description: Publisher or platform name
+
+  capture_date:
+    type: string
+    format: date
+    description: When the content was archived (YYYY-MM-DD)
+
+  post_date:
+    type: [string, "null"]
+    format: date
+    description: Publication date (YYYY-MM-DD), null for websites without single publication date
+
+  description:
+    type: string
+    description: Multi-line description of the content
+
+  tags:
+    type: array
+    items:
+      type: string
+    description: Categorical tags for classification
+
+  key_facts:
+    type: array
+    items:
+      type: string
+    description: Key facts or findings from this source
+
+  archive_url:
+    type: [string, "null"]
+    format: uri
+    description: External archive URL (archive.today, Wayback Machine)
+
+  # Optional fields
+  title_en:
+    type: string
+    description: English translation of title (for Chinese-language sources)
+
+  description_zh:
+    type: string
+    description: Chinese translation of description (for Chinese-language sources)
+
+  author:
+    type: string
+    description: Content creator or author name
+
+  platform:
+    type: string
+    enum: [youtube, x, twitter, facebook, instagram, threads]
+    description: Social media platform
+
+  priority:
+    type: string
+    enum: [high, critical]
+    description: Priority level for archival
+
+  access_note:
+    type: string
+    description: Notes about access restrictions (paywall, geo-blocking)
+
+  verification_status:
+    type: string
+    enum: [verified, unverified]
+    description: Verification status of the content
+
+  note:
+    type: string
+    description: General notes or comments
+
+  # Multi-file archive fields
+  files:
+    type: array
+    items:
+      oneOf:
+        # Floor plan file structure
+        - type: object
+          required: [filename, url, block, name_zh, name_en, fire_status]
+          properties:
+            filename:
+              type: string
+              description: PDF filename
+            url:
+              type: string
+              format: uri
+              description: Direct download URL
+            block:
+              type: string
+              description: Block identifier (A-H)
+            name_zh:
+              type: string
+              description: Chinese building name
+            name_en:
+              type: string
+              description: English building name
+            fire_status:
+              type: string
+              enum: [affected, fire_origin, not_affected]
+              description: Fire damage status
+          additionalProperties: false
+
+        # Website archive directory structure
+        - type: object
+          required: [path, description]
+          properties:
+            path:
+              type: string
+              description: Directory path within archive
+            description:
+              type: string
+              description: Description of directory contents
+            file_count:
+              type: integer
+              minimum: 0
+              description: Number of files in directory
+          additionalProperties: false
+    description: Array of file or directory entries
+
+  total_files:
+    type: integer
+    minimum: 0
+    description: Total number of archived files
+
+  checksum_file:
+    type: string
+    description: SHA-256 checksum filename
+
+additionalProperties: false
